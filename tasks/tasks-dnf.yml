@@ -1,0 +1,14 @@
+---
+- name: Ensure MS Teams repo is present
+  yum_repository:
+    name: microsoft-teams
+    description: Microsoft Teams
+    baseurl: https://packages.microsoft.com/yumrepos/ms-teams
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+- name: Ensure MS Teams package is present
+  dnf:
+    update_cache: yes
+    name: teams
+    state: present
